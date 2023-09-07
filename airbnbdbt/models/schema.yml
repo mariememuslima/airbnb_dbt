@@ -1,0 +1,32 @@
+
+version: 2
+
+# models:
+        
+#   - name: acitivities
+#     description: A seed file for the properties table
+#     columns:
+#       - name: activity
+#         # tests:
+#         #   - not_null
+#       - name: host_id
+#         # tests:
+#         #   - not_null
+#       - name: name
+#         # tests:
+#         #   - not_null
+#       # Add tests for other columns as needed
+#     # meta:
+#     #   schema: public
+#     #   database: airbnbdb
+#     #   table: testinglist
+
+
+
+sources:
+  - name: airbnb
+    database: airbnbdb
+    schema: public 
+    tables:
+      - name: hosts_airbnb_paris
+      - name: listings_airbnb_paris

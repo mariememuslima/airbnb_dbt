@@ -1,0 +1,6 @@
+env/
+logs/
+airbnbdbt/target/
+airbnbdbt/dbt_packages/
+airbnbdbt/logs/
+airbnbdbt/models/airbnb/vlening_null.sql
