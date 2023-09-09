@@ -139,11 +139,18 @@ airflow scheduler -D
 in ubuntu
 ``` 
 airflow webserver --port 8080 &
-airflow sche
-duler &
+airflow scheduler &
 `````````
 ## Creating an Exposure with DBT
 
+To create our exposure, we make sure to add the exposure sexion to the models/schema.yml file. By running the following command, we create a json file that make the documentation of our models 
+``` 
+dbt docs generate
+`````````
+to visualize in a webserver (on http://localhost:8080) the documentation and everything related to the work, run the following command. 
+``` 
+dbt docs serve
+`````````
 
 ## The airflow dag scheduled
 You can add the file dags/airbnb_dag.py to your airflow/dags/ repository installed withe the precedent instructions to run the dbt project everyday at **8 am** 

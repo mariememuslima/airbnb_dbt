@@ -39,6 +39,8 @@ models:
     description: "Le nombre d'annonces par hosts"
     columns:
       - name: host_id
+          - unique
+          - not_null
       - name: host_name
 
 
@@ -58,12 +60,11 @@ models:
 
 exposures:
 
-  - name: daily airbnb
+  - name: daily_airbnb
     label: Airbnb by the Day
     type: dashboard
     maturity: high
-    description: >
-      Did someone say "exponential growth"?
+    description:  "Airbnb statistical view"
 
     depends_on:
       - ref('map')
@@ -73,8 +74,6 @@ exposures:
       - ref('listing_per_host')
       - ref('type_de_chambre')
       - ref('location_a_court_terme')
-      - source("airbnb","listings_airbnb_paris")
-      - source("airbnb","hosts_airbnb_paris")
 
     owner:
       name: Team Girls 4 STEM (Fatou Binetou Wade, Khady Gueye, Marième Pouye)
