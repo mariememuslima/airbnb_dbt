@@ -1,26 +1,84 @@
 
 version: 2
 
-# models:
-        
-#   - name: acitivities
-#     description: A seed file for the properties table
-#     columns:
-#       - name: activity
-#         # tests:
-#         #   - not_null
-#       - name: host_id
-#         # tests:
-#         #   - not_null
-#       - name: name
-#         # tests:
-#         #   - not_null
-#       # Add tests for other columns as needed
-#     # meta:
-#     #   schema: public
-#     #   database: airbnbdb
-#     #   table: testinglist
+models:
+  - name: map
+    description: "Localisation des airbnbs sur Paris avec la longitude et la latitude"
+    columns:
+      - name: city
+      - name: longitude
+      - name: latitude
 
+
+  - name: licenses
+    description: "le statut de la licence du airbnb"
+    columns:
+      - name: license
+      - name: total_licensed
+
+
+  - name: best_host
+    description: "Les meilleurs hôtes avec les services proposés"
+    columns:
+      - name: host_name
+      - name: entire_apt
+      - name: hotel_room
+      - name: shared_room
+      - name: private_room
+      - name: total
+
+
+  - name: activities
+    description: "L'activité de l'airbnb"
+    columns:
+      - name: availability_365
+      - name: nbr_avaibility 
+
+
+  - name: listing_per_host
+    description: "Le nombre d'annonces par hosts"
+    columns:
+      - name: host_id
+      - name: host_name
+
+
+  - name: location_a_court_terme
+    description: "La disponibilté selon le minimum night"
+    columns:
+      - name: minimum_nights
+      - name: avaibility
+
+
+  - name: type_de_chambre
+    description: "Les différents types de chambre proposés par Airbnb" 
+    columns:
+      - name: room_type
+      - name: nbr_room
+
+
+exposures:
+
+  - name: daily airbnb
+    label: Airbnb by the Day
+    type: dashboard
+    maturity: high
+    description: >
+      Did someone say "exponential growth"?
+
+    depends_on:
+      - ref('map')
+      - ref('licenses')
+      - ref('best_host')
+      - ref('activities')
+      - ref('listing_per_host')
+      - ref('type_de_chambre')
+      - ref('location_a_court_terme')
+      - source("airbnb","listings_airbnb_paris")
+      - source("airbnb","hosts_airbnb_paris")
+
+    owner:
+      name: Team Girls 4 STEM (Fatou Binetou Wade, Khady Gueye, Marième Pouye)
+      email: mariemepouye2@gmail.com
 
 
 sources:

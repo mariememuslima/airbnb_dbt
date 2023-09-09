@@ -1,4 +1,4 @@
-{{config(materialized='view')}}
+{{config(materialized='table')}}
 
 with map as(
     SELECT 'Paris' as city, latitude, longitude FROM

@@ -54,8 +54,29 @@ dbt init
 After initiating the dbt project, you should put the correct informations related to your bigquery database
 
 ## Understand the project
+Our project aims to exploit data from Airbnb. Airbnb connects individuals, hotel companies, and rental property investors. It is within this context that we decided to explore the following KPIs:
+* KIND OF BEDROOM
+* ACTIVITY
+* LICENSES
+* SHORT TERM RENTAL
+* ANNOUNCEMENT BY HOST
+* BEST HOSTS
 
 ## Understand the KPI
+### KIND OF BEDROOM :
+For this KPI we determine the different types of rooms that exist on our dataset with its total number of
+### ACTIVITY :
+In terms of activity, we have determined them according to the availability_365 indicator
+### LICENSES:
+This involves determining which Airbnbs have a license or not, in addition to those which are exempt or pending.
+### SHORT TERM RENTAL
+This is to determine whether short-term or long-term rentals are more popular
+### ANNOUNCEMENT BY HOST
+For each host, we output the number of announcements that were made.
+### BEST HOSTS
+We determined who the best hosts are in relation to the accommodation offered
+### BEST HOSTS
+We add the map model to locate the airbnbs in Paris 
 
 ## Airflow Configuration
 
@@ -124,10 +145,11 @@ duler &
 ## Creating an Exposure with DBT
 
 
-## Creating an Exposure with DBT
-You can add the file dags/airbnb_dag.py to your airflow/dags/ repository to run the dbt project everyday at 8 am
+## The airflow dag scheduled
+You can add the file dags/airbnb_dag.py to your airflow/dags/ repository installed withe the precedent instructions to run the dbt project everyday at **8 am** 
 
 ## Vizualisation With Power BI
 
 
-<img src="img/numpy-arrays-example-1.png" alt="Airbnb models visualized with Power BI Desktop">
+<img src="visualization/airbnb_visual.png" alt="Airbnb models visualized with Power BI Desktop">
+We made a visualisation to  enlight our models. You can see the pbix file the visualization/ folder. 
